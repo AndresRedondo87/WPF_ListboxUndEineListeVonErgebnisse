@@ -49,6 +49,10 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
             // Die Listbox in XAML lbMatches  braucht ein Items source, so zu sagen eine Quelle fur die Daten zum anzeigen.
             // wir zuweisen dann die Liste die wir gerade eingetragen haben
             // in XAML <ListBox Name="lbMatches" HorizontalContentAlignment="Center">
+
+            //ComboBox
+            cbColours.ItemsSource = typeof(Colors).GetProperties(); 
+            // WIEDER GAR NICHT ERKLÄRT DEN typeof oder woher Colors und nicht Color... oder wieso GetProperties und nicht GetProperty...
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
