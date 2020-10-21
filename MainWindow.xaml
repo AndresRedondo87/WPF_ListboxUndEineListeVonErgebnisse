@@ -63,6 +63,23 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            
+            <!--Checkbox Pizzatoppings...-->
+
+            <Label FontWeight="Bold" Margin="10">Pizzabelag</Label>
+            <CheckBox Name="cbAllToppings"  IsThreeState="True" Checked="cbAllToppings_Checked" Unchecked="cbAllToppings_Unchecked" Margin="10">Alle hinzufügen</CheckBox>
+            <!--IsThreeState="true" nicht nur true or false,es hat auch partiell-->
+            <StackPanel Margin="20">
+                <CheckBox Name="cbSalami" Checked="cbSingleCheckedChanged" Unchecked="cbSingleCheckedChanged">
+                    <TextBlock>
+                        Salami <Run Foreground="Red" FontWeight="Bold">Scharf</Run>  <!--WTF TUT DIESEES RUN JETZT HIER VERDAMMT NOCHMAL!!!-->
+                    </TextBlock>
+                </CheckBox>
+                <CheckBox Name="cbMushrooms" Checked="cbSingleCheckedChanged" Unchecked="cbSingleCheckedChanged">Champignons</CheckBox>
+                <CheckBox Name="cbMozarella" Checked="cbSingleCheckedChanged" Unchecked="cbSingleCheckedChanged">Mozarella</CheckBox>
+                
+            </StackPanel>
+
         </StackPanel>
 
     </Grid>

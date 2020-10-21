@@ -53,6 +53,9 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
             //ComboBox
             cbColours.ItemsSource = typeof(Colors).GetProperties(); 
             // WIEDER GAR NICHT ERKLÄRT DEN typeof oder woher Colors und nicht Color... oder wieso GetProperties und nicht GetProperty...
+
+
+            //checkboxen
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -85,6 +88,32 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
                    $" Minute {(lbMatches.SelectedItem as Match).Completion}' ");
         }
 
+        private void cbAllToppings_Checked(object sender, RoutedEventArgs e)
+        {
+            bool newVal = (cbAllToppings.IsChecked == true);
+            cbSalami.IsChecked = newVal;
+            cbMushrooms.IsChecked = newVal;
+            cbMozarella.IsChecked = newVal;
 
+        }
+
+        private void cbAllToppings_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Selber erstellt
+        private void cbSingleCheckedChanged(object sender, RoutedEventArgs e)
+        {
+            cbAllToppings.IsChecked = null;
+            if((cbSalami.IsChecked == true )&&(cbMozarella.IsChecked == true) && (cbMushrooms.IsChecked == true))
+            {
+                cbAllToppings.IsChecked = true;
+            }
+            if ((cbSalami.IsChecked == false) && (cbMozarella.IsChecked == false) && (cbMushrooms.IsChecked == false))
+            {
+                cbAllToppings.IsChecked = true;
+            }
+        }
     }
 }
