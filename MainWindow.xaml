@@ -50,7 +50,10 @@
         </ListBox>
 
         <StackPanel Grid.Column="1">
-            <Button Grid.Column="1" Width="95" Height="85" Click="Button_Click" Content="Mehr Details"/>
+            <Button Grid.Column="1" Width="75" Height="40" Click="Button_Click"  Margin="5" ToolTip="Ich bin ein Tooltip für extra Info. Ich habe aber einfach nur Festen Text Inhalt!!">
+                <TextBlock Text="Mehr Details + Tooltips!" TextWrapping="Wrap" TextAlignment="Center">
+                </TextBlock>
+            </Button>
             <!--Combobox-->
             <TextBlock Text="ComboBox:" Margin="10"/>
             <ComboBox  Name="cbColours" Grid.Column="1" Width="180" Height="32">
