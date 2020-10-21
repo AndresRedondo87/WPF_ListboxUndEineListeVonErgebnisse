@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_ListboxUndEineListeVonErgebnisse"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -79,6 +79,17 @@
                 <CheckBox Name="cbMozarella" Checked="cbSingleCheckedChanged" Unchecked="cbSingleCheckedChanged">Mozarella</CheckBox>
                 
             </StackPanel>
+
+            <!--Checkbox Pizzatoppings...ERWEITERUNG-->
+            <Label FontWeight="Bold" Margin="5">Pizzabelag Erweitert!</Label>
+            <CheckBox Name="cbAll"  IsThreeState="True" Checked="cbAll_Checked" Unchecked="cbAll_Unchecked" Margin="10">Alle hinzufügen</CheckBox>
+            <ListBox x:Name="MyZutaten" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Width="Auto" Content="{Binding Path=Zutat}" IsChecked="{Binding Chosen,  Mode=TwoWay}" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" IsThreeState="False" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
         </StackPanel>
 

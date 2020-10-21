@@ -20,29 +20,39 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        // INotifyPropertyChanged Interface-
+        // es meldet sich wenn eine Pror geändert worden ist
+        public Pizza MeinePizza { get; set; }
+        // WAS SOWAS FÜR UNS BEDEUTET WIRD NICHT RICHTIG ERKLÄRT...
+
+
+        //checkboxen ERWEITERUING VERSUCH
+        private List<Pizza> lstZutaten = new List<Pizza>();
+
         public MainWindow()
         {
             InitializeComponent();
 
-            List < Match > matches = new List<Match>();
-            matches.Add(new Match() { Team1 = "Real Madrid", Team2 = "Bayern München", Score1 = 5, Score2 = 2, Completion = 82 });
-            matches.Add(new Match() { Team1 = "PSG", Team2 = "BBVB", Score1 = 1, Score2 = 1, Completion = 15 });
-            matches.Add(new Match() { Team1 = "Juventus", Team2 = "Bacelona", Score1 = 2, Score2 = 0, Completion = 50 });
-            matches.Add(new Match() { Team1 = "Atlético Madrid", Team2 = "Bayern Leverkusen", Score1 = 1, Score2 = 0, Completion = 89 });
-
-
-            matches.Add(new Match() { Team1 = "Real Madrid", Team2 = "Bayern München", Score1 = 5, Score2 = 2, Completion = 82 });
-            matches.Add(new Match() { Team1 = "PSG", Team2 = "BBVB", Score1 = 1, Score2 = 1, Completion = 15 });
-            matches.Add(new Match() { Team1 = "Juventus", Team2 = "Bacelona", Score1 = 2, Score2 = 0, Completion = 50 });
-            matches.Add(new Match() { Team1 = "Atlético Madrid", Team2 = "Bayern Leverkusen", Score1 = 1, Score2 = 0, Completion = 89 });
-            matches.Add(new Match() { Team1 = "Real Madrid", Team2 = "Bayern München", Score1 = 5, Score2 = 2, Completion = 82 });
-            matches.Add(new Match() { Team1 = "PSG", Team2 = "BBVB", Score1 = 1, Score2 = 1, Completion = 15 });
-            matches.Add(new Match() { Team1 = "Juventus", Team2 = "Bacelona", Score1 = 2, Score2 = 0, Completion = 50 });
-            matches.Add(new Match() { Team1 = "Atlético Madrid", Team2 = "Bayern Leverkusen", Score1 = 1, Score2 = 0, Completion = 89 });
-            matches.Add(new Match() { Team1 = "Real Madrid", Team2 = "Bayern München", Score1 = 5, Score2 = 2, Completion = 82 });
-            matches.Add(new Match() { Team1 = "PSG", Team2 = "BBVB", Score1 = 1, Score2 = 1, Completion = 15 });
-            matches.Add(new Match() { Team1 = "Juventus", Team2 = "Bacelona", Score1 = 2, Score2 = 0, Completion = 50 });
-            matches.Add(new Match() { Team1 = "Atlético Madrid", Team2 = "Bayern Leverkusen", Score1 = 1, Score2 = 0, Completion = 89 });
+            List<Match> matches = new List<Match>
+            {
+                new Match() { Team1 = "Real Madrid", Team2 = "Bayern München", Score1 = 5, Score2 = 2, Completion = 82 },
+                new Match() { Team1 = "PSG", Team2 = "BBVB", Score1 = 1, Score2 = 1, Completion = 15 },
+                new Match() { Team1 = "Juventus", Team2 = "Bacelona", Score1 = 2, Score2 = 0, Completion = 50 },
+                new Match() { Team1 = "Atlético Madrid", Team2 = "Bayern Leverkusen", Score1 = 1, Score2 = 0, Completion = 89 },
+                new Match() { Team1 = "Real Madrid", Team2 = "Bayern München", Score1 = 5, Score2 = 2, Completion = 82 },
+                new Match() { Team1 = "PSG", Team2 = "BBVB", Score1 = 1, Score2 = 1, Completion = 15 },
+                new Match() { Team1 = "Juventus", Team2 = "Bacelona", Score1 = 2, Score2 = 0, Completion = 50 },
+                new Match() { Team1 = "Atlético Madrid", Team2 = "Bayern Leverkusen", Score1 = 1, Score2 = 0, Completion = 89 },
+                new Match() { Team1 = "Real Madrid", Team2 = "Bayern München", Score1 = 5, Score2 = 2, Completion = 82 },
+                new Match() { Team1 = "PSG", Team2 = "BBVB", Score1 = 1, Score2 = 1, Completion = 15 },
+                new Match() { Team1 = "Juventus", Team2 = "Bacelona", Score1 = 2, Score2 = 0, Completion = 50 },
+                new Match() { Team1 = "Atlético Madrid", Team2 = "Bayern Leverkusen", Score1 = 1, Score2 = 0, Completion = 89 },
+                new Match() { Team1 = "Real Madrid", Team2 = "Bayern München", Score1 = 5, Score2 = 2, Completion = 82 },
+                new Match() { Team1 = "PSG", Team2 = "BBVB", Score1 = 1, Score2 = 1, Completion = 15 },
+                new Match() { Team1 = "Juventus", Team2 = "Bacelona", Score1 = 2, Score2 = 0, Completion = 50 },
+                new Match() { Team1 = "Atlético Madrid", Team2 = "Bayern Leverkusen", Score1 = 1, Score2 = 0, Completion = 89 }
+            };
             /// Mit viele Einträge macht der Listbox eine automatische Vertikale Scrollbar hinzugefügt
 
             lbMatches.ItemsSource = matches;
@@ -51,12 +61,22 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
             // in XAML <ListBox Name="lbMatches" HorizontalContentAlignment="Center">
 
             //ComboBox
-            cbColours.ItemsSource = typeof(Colors).GetProperties(); 
+            cbColours.ItemsSource = typeof(Colors).GetProperties();
             // WIEDER GAR NICHT ERKLÄRT DEN typeof oder woher Colors und nicht Color... oder wieso GetProperties und nicht GetProperty...
 
 
-            //checkboxen
-        }
+            //checkboxen ERWEITERUING VERSUCH
+            lstZutaten.Add(new Pizza() { Zutat = "Salami", Chosen = false });
+            lstZutaten.Add(new Pizza() { Zutat = "Paprika", Chosen = false });
+            lstZutaten.Add(new Pizza() { Zutat = "Tomate", Chosen = false });
+            lstZutaten.Add(new Pizza() { Zutat = "Mozzarella", Chosen = false });
+            lstZutaten.Add(new Pizza() { Zutat = "Champignons", Chosen = false });
+            lstZutaten.Add(new Pizza() { Zutat = "Thunfisch", Chosen = false });
+            MyZutaten.ItemsSource = lstZutaten;
+
+            this.DataContext = lstZutaten;
+        
+    }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -99,7 +119,7 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
 
         private void cbAllToppings_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            // ?? nichts machen?
         }
 
         //Selber erstellt
@@ -113,6 +133,48 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
             if ((cbSalami.IsChecked == false) && (cbMozarella.IsChecked == false) && (cbMushrooms.IsChecked == false))
             {
                 cbAllToppings.IsChecked = true;
+            }
+        }
+
+
+        //checkboxen ERWEITERUING VERSUCH
+        private void cbAll_Checked(object sender, RoutedEventArgs e)
+        {
+            bool newValue = (cbAll.IsChecked == true);
+            lstZutaten.ForEach(x => x.Chosen = newValue);
+        }
+        private void cbAll_Unchecked(object sender, RoutedEventArgs e)
+        {
+            // ?? nichts machen?
+        }
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+            bool oneChecked = false;
+            bool oneNotChecked = false;
+            foreach (Pizza item in MyZutaten.Items)
+            {
+                if (item.Chosen == true)
+                {
+                    oneChecked = true;
+                }
+                else if (item.Chosen == false)
+                {
+                    oneNotChecked = true;
+                }
+            }
+
+            if (!oneChecked)
+            {
+                cbAll.IsChecked = false;
+            }
+            if (!oneNotChecked)
+            {
+                cbAll.IsChecked = true;
+            }
+            if (oneChecked && oneNotChecked)
+            {
+                cbAll.IsChecked = null;
             }
         }
     }
