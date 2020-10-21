@@ -28,8 +28,8 @@
                         <TextBlock Grid.Column="1" HorizontalAlignment="Right" Width="20" Text="{Binding Score1}"/>
                         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Width="20" Text="{Binding Score2}"/>
                         <TextBlock Grid.Column="3" Text="{Binding Team2}"/>
-                        <ProgressBar Grid.Column="4" Minimum="0" Maximum="90" Value="{Binding Completion}" >                  <!--ToolTip="{Binding Path=Winning}"-->
-                            <ToolTipService.ToolTip>
+                        <ProgressBar Grid.Column="4" Minimum="0" Maximum="90" Value="{Binding Completion}" >
+                            <!--<ToolTipService.ToolTip>
                                 <TextBlock>
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat="Winning: {0}  Remaining Time{1}'">
@@ -38,27 +38,23 @@
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                            </ToolTipService.ToolTip>
+                            </ToolTipService.ToolTip>-->
                         </ProgressBar>
+                        
+                        <ToolTipService.ToolTip>        <!--This Tooltip wird aktiviert beim hovering irgendeine Inhalt von den Grid-->
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="Winning {0}  Remaining Time {1}'">
+                                        <Binding Path="Winning"/>
+                                        <Binding Path="TimeToEnd"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </ToolTipService.ToolTip>
                     </Grid>
                 </DataTemplate>
-                
-            </ListBox.ItemTemplate>
-            <!--<ListBox.ToolTip>
-                <ToolTip>
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold" Text="{Binding Path=Winning}"/>
-                        <TextBlock  Text="{Binding Path=TimeToEnd}"/>
-                    </StackPanel>
-                </ToolTip>
-            </ListBox.ToolTip>-->
-            <!--<ToolTip>
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">Submit Request</TextBlock>
-                    <TextBlock>Submits the request to the server.</TextBlock>
-                </StackPanel>
-            </ToolTip>-->
 
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <StackPanel Grid.Column="1">
