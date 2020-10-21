@@ -56,15 +56,31 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
             // Match anzeigen mit mehr Info (Theoretisch)
             if(lbMatches.SelectedItem != null)      //MUSS ETWAS AUSGEWÄHLT SEIN; SONST GIBT ES EXCEPTIONS!!
             {
-                MessageBox.Show($"Ausgewähltes Spiel: \n\n" +
-                    $"{(lbMatches.SelectedItem as Match).Team1} {(lbMatches.SelectedItem as Match).Score1} " +
-                    $"- {(lbMatches.SelectedItem as Match).Score2} {(lbMatches.SelectedItem as Match).Team2} " +
-                    $"  {(lbMatches.SelectedItem as Match).Completion}' ");
+                //MessageBox.Show($"Ausgewähltes Spiel: \n\n" +
+                //    $"{(lbMatches.SelectedItem as Match).Team1} {(lbMatches.SelectedItem as Match).Score1} " +
+                //    $"- {(lbMatches.SelectedItem as Match).Score2} {(lbMatches.SelectedItem as Match).Team2} " +
+                //    $" Minute {(lbMatches.SelectedItem as Match).Completion}' ");
+                DisplayInfo(sender, e);
             }
             else
             {
                 MessageBox.Show("Bitte wählen Sie einem Spiel aus!");
             }
         }
+
+        private void lbMatches_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DisplayInfo(sender, e);
+        }
+
+        private void DisplayInfo(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Ausgewähltes Spiel: \n\n" +
+                   $"{(lbMatches.SelectedItem as Match).Team1} {(lbMatches.SelectedItem as Match).Score1} " +
+                   $"- {(lbMatches.SelectedItem as Match).Score2} {(lbMatches.SelectedItem as Match).Team2} " +
+                   $" Minute {(lbMatches.SelectedItem as Match).Completion}' ");
+        }
+
+
     }
 }

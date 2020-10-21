@@ -12,7 +12,7 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox Name="lbMatches" HorizontalContentAlignment="Stretch"> <!--Stretch heisst langziehen, sowas wie *-->
+        <ListBox Name="lbMatches" HorizontalContentAlignment="Stretch" MouseDoubleClick="lbMatches_MouseDoubleClick"> <!--Stretch heisst langziehen, sowas wie *-->
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="5">
@@ -32,6 +32,20 @@
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            <ListBox.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" Text="{Binding Winning}"/>
+                        <TextBlock  Text="{Binding TimeToEnd}"/>
+                    </StackPanel>
+                </ToolTip>
+            </ListBox.ToolTip>
+            <!--<ToolTip>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold">Submit Request</TextBlock>
+                    <TextBlock>Submits the request to the server.</TextBlock>
+                </StackPanel>
+            </ToolTip>-->
 
         </ListBox>
 

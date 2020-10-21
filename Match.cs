@@ -15,5 +15,32 @@ namespace WPF_ListboxUndEineListeVonErgebnisse
         public string Team2 { get; set; }
 
         public int Completion { get; set; }
+
+
+
+        public string Winning { 
+            get 
+            {
+                if (this.Score1 > this.Score2) return Team1;
+                if (this.Score1 < this.Score2) return Team2;
+                else return "--";
+            }
+            set
+            {
+                if (this.Score1 > this.Score2) Winning= Team1;
+                if (this.Score1 < this.Score2) Winning= Team2;
+                else Winning = "--";
+            }
+        }
+        public int TimeToEnd {
+            get
+            {
+                return 90 - this.Completion;
+            }
+            set
+            {
+                TimeToEnd = 90 - this.Completion;
+            }
+        }
     }
 }
