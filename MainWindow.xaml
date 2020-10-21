@@ -53,7 +53,7 @@
             <Button Grid.Column="1" Width="95" Height="85" Click="Button_Click" Content="Mehr Details"/>
             <!--Combobox-->
             <TextBlock Text="ComboBox:" Margin="10"/>
-            <ComboBox  Name="cbColours" Grid.Column="1" Width="180" Height="32"  VerticalAlignment="Bottom">
+            <ComboBox  Name="cbColours" Grid.Column="1" Width="180" Height="32">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
